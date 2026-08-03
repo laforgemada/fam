@@ -1,0 +1,23 @@
+{
+  "packageId": "com.laforgemada.famapkii",
+  "host": "laforgemada.github.io",
+
+  "name": "Fam Apokalypsy",
+  "launcherName": "Fam Apokalypsy",
+
+  "display": "standalone",
+
+  "themeColor": "#1E3A8A",
+  "navigationColor": "#000000",
+  "backgroundColor": "#FFFFFF",
+
+  "startUrl": "./",
+
+  "iconUrl": "https://laforgemada.github.io/famapkII/icons/icon-512.png",
+  "maskableIconUrl": "https://laforgemada.github.io/famapkII/icons/icon-512.png",
+
+  "signingKey": {
+    "path": "android.keystore",
+    "alias": "androiddebugkey"
+  }
+}
