@@ -1621,16 +1621,12 @@ function markActionDoneToday(action) {
     setCache(earnKey(action), true);
 }
 
-function videoCountKey() {
-    return `earn_video_count_${currentUsername || 'guest'}_${getDateKey()}`;
-}
-
 function getVideoCountToday() {
-    return getCache(videoCountKey()) || 0;
+    return getCache(earnKey('video')) || 0;
 }
 
 function setVideoCountToday(n) {
-    setCache(videoCountKey(), n);
+    setCache(earnKey('video'), n);
 }
 
 const pollBank = [
@@ -1829,6 +1825,7 @@ async function completeVideoPlayback() {
     if (ok) {
         const newCount = getVideoCountToday() + 1;
         setVideoCountToday(newCount);
+        if (newCount >= VIDEO_DAILY_LIMIT) markActionDoneToday('video');
 
         setText('videoStatusText', `Merci d'avoir regardé ! (${newCount}/${VIDEO_DAILY_LIMIT} aujourd'hui)`);
         btn.innerHTML = `<i data-feather="check"></i> +2 points obtenus`;
